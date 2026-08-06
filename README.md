@@ -95,7 +95,7 @@ python train.py --seed 42--data_type RAF-DB --batch_size 8 --resume_name checkpo
 The `batch_size` can be scaled according to the available GPU resources. Using a larger batch size may lead to better performance. Training logs are saved in the `log` directory. Running the training multiple times is recommended to obtain optimal results.
 ## Testing
 
-If you want to use our pre-trained model, you can download the best checkpoint [here](https://drive.google.com/drive/folders/10tltNSB009VoalxTo46IUMpQhPANudhF?usp=drive_link) and place it into the `checkpoints/` directory.
+If you want to use our pretrained model, you can download the best checkpoint [here](https://drive.google.com/drive/folders/10tltNSB009VoalxTo46IUMpQhPANudhF?usp=drive_link) and place it into the `checkpoints/` directory.
 
 To evaluate on a specific dataset (e.g., RAF-DB), run:
 
@@ -103,6 +103,19 @@ To evaluate on a specific dataset (e.g., RAF-DB), run:
 python test.py --seed 42 --data_type RAF-DB --ckpt_path checkpoints/rafdb_best.pth
 ```
 
+## Ablation Study Checkpoints
+
+The checkpoints used for ablation experiments are provided separately.
+
+You can download the ablation checkpoints [here](https://drive.google.com/drive/folders/10ysC_2tfkfZTyalj-nvX96FtAsCC8uCl?usp=sharing) and place them into the `checkpoints/ablation/` directory.
+
+Note that each ablation experiment requires the corresponding changes in the model architecture or training configuration. Before evaluating an ablation checkpoint, please ensure that the model settings and training parameters are consistent with the specific ablation design.
+
+For example, to evaluate an ablation model:
+
+```bash
+python test.py --seed 42 --data_type RAF-DB --ckpt_path checkpoints/ablation/baseline.pth
+```
 ## Visualization
 
 You can visualize model outputs such as:
